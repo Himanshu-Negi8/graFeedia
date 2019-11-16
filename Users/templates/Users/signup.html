@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+
+{% block title %}
+    Signup
+{% endblock %}
+{% block content %}
+<div class="container">
+    <form method="post" action="" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form%}
+        {% buttons %}
+        <button type="submit" class="btn btn-primary">Signup</button>
+        {% endbuttons %}
+    </form>
+</div>
+{% endblock content %}
