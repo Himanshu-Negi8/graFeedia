@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="734d9d8e-9c01-40b5-8bbe-a12ad070d89c" name="Default Changelist" comment="" />
+    <list default="true" id="734d9d8e-9c01-40b5-8bbe-a12ad070d89c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Posts/templates/Posts/post_base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Posts/templates/Posts/_single_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/Posts/templates/Posts/_single_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Posts/templates/Posts/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Posts/templates/Posts/post_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Posts/templates/Posts/post_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Posts/templates/Posts/post_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Posts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Posts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Posts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Posts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geu/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/geu/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geu/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/geu/urls.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +28,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1TgayMVUWwzbBDiIOlAGBVrm853" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Posts/templates/Posts" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -80,11 +97,22 @@
       <updated>1573884448619</updated>
       <workItem from="1573884525671" duration="1831000" />
       <workItem from="1573892731262" duration="4337000" />
-      <workItem from="1573897659501" duration="5713000" />
+      <workItem from="1573897659501" duration="12655000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

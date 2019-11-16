@@ -1,13 +1,19 @@
 {% extends "posts/post_base.html" %}
 {% load staticfiles %}
-
+{% load static %}
 {% block title %}
 post detail
 {% endblock %}
 
 {% block post_content%}
 <div class="col-md-8">
-{% include "posts/_single_post.html" %}
+<p class="mb-0">{{ post.post_title}}</p>
+<p class="mb-0">{{ post.message }}</p>
+
+<footer class="blockquote-footer">Created by: <a href="#">@{{ post.user.username }}</a> at <cite title="Source Title"><a href="#">{{ post.created_at }}</a></cite>
+</footer>
 </div>
+{% if post.img %}
 <img src="{{ post.img.url }}" alt="" height="50px" width="200px">
+{% endif %}
 {% endblock post_content %}

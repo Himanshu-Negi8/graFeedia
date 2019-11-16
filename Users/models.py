@@ -20,5 +20,5 @@ class User(AbstractUser):
     course = models.CharField(choices=course_choices, max_length=2)
     #slug = models.SlugField(allow_unicode=True, unique=True)
 
-    #def get_absolute_url(self):
-     #   return reverse('Users:user_profile', kwargs={'slug': self.slug})
+    def get_absolute_url(self):
+       return reverse('home')
