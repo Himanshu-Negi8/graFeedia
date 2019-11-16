@@ -4,7 +4,7 @@
 
 {% block content %}
     {% for i in series %}
-       <a href="{% url 'Tutorial:addtutorial' slug=i.tutorial_series %}" >{{ i.tutorial_series }}</a>
+       <a href="{% url 'Tutorial:addtutorial' slug=i.series_slug   %}" >{{ i.tutorial_series }}</a>
     {% endfor %}
     </form>
 

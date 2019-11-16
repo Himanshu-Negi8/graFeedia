@@ -19,11 +19,11 @@ class TutorialCategory(models.Model):
 
 class TutorialSeries(models.Model):
     tutorial_series = models.CharField(max_length=200)
-    user = models.ForeignKey(User,related_name='tutorial',on_delete=models.CASCADE)
+    # user = models.ForeignKey(User,related_name='tutorial',on_delete=models.CASCADE)
     tutorial_category = models.ForeignKey(TutorialCategory,default=1,verbose_name='Category',
                                           on_delete=models.SET_DEFAULT)
     series_summary = models.CharField(max_length=200)
-
+    series_slug = models.CharField(max_length=200)
     class Meta:
         verbose_name_plural = "Series"
 
@@ -32,11 +32,12 @@ class TutorialSeries(models.Model):
 
 
 class Tutorial(models.Model):
+    user = models.ForeignKey(User,related_name='tutorial',on_delete=models.CASCADE)
     tutorial_title = models.CharField(max_length=200)
     tutorial_content = models.TextField()
     tutorial_published = models.DateTimeField("date published", default=datetime.now())
     tutorial_series =models.ForeignKey(TutorialSeries,on_delete=models.CASCADE)
-    tutorial_slug = models.CharField(max_length=200)
+    tutorial_slug = models.SlugField(allow_unicode=True)
 
     def __str__(self):
         return self.tutorial_title
