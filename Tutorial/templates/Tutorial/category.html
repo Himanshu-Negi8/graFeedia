@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+
+{% block content %}
+    {% for i in category %}
+       <a href="{% url 'Tutorial:tut_series' slug=i.category_slug %}" >{{ i.tutorial_category }}</a>
+    {% endfor %}
+    </form>
+
+{% endblock %}

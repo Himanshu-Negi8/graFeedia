@@ -2,18 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="734d9d8e-9c01-40b5-8bbe-a12ad070d89c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Tutorial/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tutorial/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tutorial/templates/Tutorial/category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tutorial/templates/Tutorial/series.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tutorial/templates/Tutorial/tutorial_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Posts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Posts/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Posts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Posts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Posts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Posts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/migrations/0002_remove_user_slug.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/migrations/0003_user_slug.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/migrations/0004_remove_user_slug.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tutorial/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tutorial/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/templates/categories.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/templates/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/templates/main/categories.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/templates/main/category.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/templates/main/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/templates/main/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/templates/main/includes/messages.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/templates/main/includes/navbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/templates/main/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/templates/main/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/templates/main/tutorial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tutorial/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tutorial/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tutorial/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geu/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/geu/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geu/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/geu/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -43,6 +54,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\January\geu\Tutorial" />
       <recent name="G:\January\geu\Posts\templates\Posts" />
       <recent name="G:\January\geu\Posts" />
       <recent name="G:\January\geu\templates" />
@@ -98,7 +110,9 @@
       <updated>1573884448619</updated>
       <workItem from="1573884525671" duration="1831000" />
       <workItem from="1573892731262" duration="4337000" />
-      <workItem from="1573897659501" duration="19614000" />
+      <workItem from="1573897659501" duration="28518000" />
+      <workItem from="1573935082565" duration="676000" />
+      <workItem from="1573936814657" duration="3667000" />
     </task>
     <servers />
   </component>
@@ -110,7 +124,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
