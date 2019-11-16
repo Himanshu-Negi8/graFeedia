@@ -18,7 +18,7 @@ class User(AbstractUser):
     email = models.EmailField('email', unique=True, blank=False)
     description = models.TextField(max_length=100, blank=True)
     course = models.CharField(choices=course_choices, max_length=2)
-    #slug = models.SlugField(allow_unicode=True, unique=True)
+    # slug = models.SlugField(allow_unicode=True, unique=True)
 
     def get_absolute_url(self):
-       return reverse('home')
+       return reverse('Users:login')

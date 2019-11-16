@@ -12,3 +12,8 @@ class PostForm(forms.ModelForm):
         for visible in self.visible_fields():
             visible.label = ''
             visible.field.widget.attrs['placeholder'] = visible.name
+
+# class CommentForm(forms.ModelForm):
+#     class Meta:
+#         model = Comment
+#         fields = ('comment_text')

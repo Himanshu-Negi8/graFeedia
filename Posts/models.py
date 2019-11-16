@@ -22,8 +22,19 @@ class Post(models.Model):
     def __str__(self):
         return self.post_title
 
+    # def get_absolute_url(self):
+    #     return reverse('home')
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse('Posts:post_detail', kwargs={'slug': self.slug})
 
     class Meta:
         ordering = ['-created_at']
+
+
+# class Comment(models.Model):
+#     post = models.ForeignKey(Post,related_name='post_comments',on_delete=models.CASCADE)
+#     comment_author = models.CharField(max_length=50)
+#     comment_text = models.CharField(max_length=200)
+#
+#     def __str__(self):
+#         return self.post_id
