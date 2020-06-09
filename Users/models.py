@@ -21,4 +21,4 @@ class User(AbstractUser):
     # slug = models.SlugField(allow_unicode=True, unique=True)
 
     def get_absolute_url(self):
-       return reverse('Users:login')
+        return reverse('Users:user_profile', kwargs={'pk':self.pk})

@@ -11,12 +11,12 @@ class CreateTutorial(LoginRequiredMixin, CreateView):
     model = Tutorial
     form_class = TutorialForm
 
-
     def form_valid(self, form):
         self.object = form.save(commit=False)
         user = self.request.user
 
         self.object.user = user
+
         self.object.save()
         return super(CreateTutorial,self).form_valid(form)
 
@@ -34,6 +34,7 @@ def tutorial_series(request, slug):
     se = TutorialSeries.objects.filter(tutorial_category__category_slug=category)
     context = {'series': se}
     return render(request, 'Tutorial/series.html', context)
+
 
 # for c in TutorialCategory.objects.all():
 #     categories = c.category_slug

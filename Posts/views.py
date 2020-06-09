@@ -53,6 +53,7 @@ class PostDetailView(DetailView):
     model = Post
 
 
+
 # def add_comment(request, pk):
 #     post = get_object_or_404(Post, pk=pk)
 #     if request.method == 'POST':
