@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from datetime import datetime
 
+from django.urls import reverse
 from django.utils.text import slugify
 User = get_user_model()
 
@@ -37,18 +38,21 @@ class Tutorial(models.Model):
     tutorial_content = models.TextField()
     tutorial_published = models.DateTimeField("date published", default=datetime.now())
     tutorial_series =models.ForeignKey(TutorialSeries,on_delete=models.CASCADE)
-    tutorial_slug = models.SlugField(allow_unicode=True)
+    tutorial_slug = models.SlugField(allow_unicode=True,unique=True)
+
+    def save(self, *args, **kwargs):
+        self.tutorial_slug = slugify(self.tutorial_title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.tutorial_title
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.tutorial_title)
-        super().save(*args, **kwargs)
-
+    def get_absolute_url(self):
+        return reverse('Tutorial:tutorial_detail', kwargs={'slug': self.tutorial_slug})
 
 
 class Moments(models.Model):
+
     title=models.CharField(max_length=200)
     pic=models.ImageField(upload_to='images/')
 

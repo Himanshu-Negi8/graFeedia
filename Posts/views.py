@@ -13,7 +13,7 @@ from .forms import PostForm
 User = get_user_model()
 
 
-class PostListView( ListView):
+class PostListView(ListView):
     model = Post
 
     # def get_queryset(self):
