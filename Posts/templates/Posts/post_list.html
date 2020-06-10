@@ -2,6 +2,7 @@
 
 {% block content %}
  <h5>This is the post list page</h5>
+
     {% for post in post_list %}
         {% if request.user == post.user  %}
         <a href="{% url 'Posts:post_detail' slug=post.slug %}">{{ post.post_title }}</a><br>

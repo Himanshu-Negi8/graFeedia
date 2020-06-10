@@ -35,8 +35,33 @@ def tutorial_series(request, slug):
     return render(request, 'Tutorial/series.html', context)
 
 
+class TutorialListView(ListView):
+    model = Tutorial
+    template_name = 'Tutorial/tutorial_list.html'
+    # select_related = 'tutorial_series'
+
+    def get_queryset(self):
+        ob = TutorialSeries.objects.get(series_slug=self.kwargs['slug'])
+        print(ob)
+        return Tutorial.objects.filter(tutorial_series=ob)
+
+
 class TutorialDetailView(DetailView):
     model = Tutorial
+
+    def get_object(self, queryset=None):
+        slug =self.kwargs['slug']
+        ob = Tutorial.objects.get(tutorial_slug=slug)
+        try :
+            obj = Tutorial.objects.get(tutorial_title=ob)
+        except Tutorial.DoesNotExist:
+            obj = None;
+        return obj
+    # def get_queryset(self):
+    #     print(self.kwargs['slug'])
+    #     ob = Tutorial.objects.get(tutorial_slug=self.kwargs['slug'])
+    #     print(ob)
+    #     return Tutorial.objects.filter(tutorial_title=ob)
 
 # for c in TutorialCategory.objects.all():
 #     categories = c.category_slug

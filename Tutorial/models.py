@@ -53,7 +53,7 @@ class Tutorial(models.Model):
 
 class Moments(models.Model):
 
-    title=models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
     pic=models.ImageField(upload_to='images/')
 
     def __str__(self):

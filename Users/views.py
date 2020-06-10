@@ -13,7 +13,7 @@ from .models import User
 class SignupView(CreateView):
     form_class = SignupForm
     template_name = 'Users/signup.html'
-    # success_url = reverse_lazy('home')
+    success_url = reverse_lazy('home')
 
 
 def loginview(request):

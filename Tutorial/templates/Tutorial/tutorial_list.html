@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+ {% for tutorial in tutorial_list %}
+    <a href="{% url 'Tutorial:tutorial_detail' slug=tutorial.tutorial_slug   %}" >{{ tutorial.tutorial_title }}</a>
+    {% endfor %}
+
+{% endblock %}
