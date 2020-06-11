@@ -42,7 +42,6 @@ class TutorialListView(ListView):
 
     def get_queryset(self):
         ob = TutorialSeries.objects.get(series_slug=self.kwargs['slug'])
-        print(ob)
         return Tutorial.objects.filter(tutorial_series=ob)
 
 
@@ -55,7 +54,7 @@ class TutorialDetailView(DetailView):
         try :
             obj = Tutorial.objects.get(tutorial_title=ob)
         except Tutorial.DoesNotExist:
-            obj = None;
+            obj = None
         return obj
     # def get_queryset(self):
     #     print(self.kwargs['slug'])
