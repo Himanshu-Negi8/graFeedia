@@ -20,7 +20,7 @@ def loginview(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-
+        print(username)
         user = authenticate(username=username, password=password)
         if user:
             login(request, user)
