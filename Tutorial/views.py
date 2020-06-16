@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
@@ -5,21 +6,40 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 from Tutorial.models import TutorialCategory, TutorialSeries, Tutorial
 from .forms import TutorialForm
+from django.shortcuts import render, HttpResponseRedirect
+from django.urls import reverse, reverse_lazy
 
 
-class CreateTutorial(LoginRequiredMixin, CreateView):
-    model = Tutorial
-    form_class = TutorialForm
+# class CreateTutorial(LoginRequiredMixin, CreateView):
+#     model = Tutorial
+#     form_class = TutorialForm
+#
+#     def form_valid(self, form):
+#         self.object = form.save(commit=False)
+#         user = self.request.user
+#         series = TutorialSeries.objects.get(series_slug=self.kwargs['slug'])
+#         print(series)
+#         self.object.user = user
+#         self.object.tutorial_series = series
+#         self.object.save()
+#         return super().form_valid(form)
 
-    def form_valid(self, form):
-        self.object = form.save(commit=False)
-        user = self.request.user
-        series = TutorialSeries.objects.get(series_slug=self.kwargs['slug'])
-        print(series)
-        self.object.user = user
-        self.object.tutorial_series = series
-        self.object.save()
-        return super().form_valid(form)
+
+@login_required
+def createTutorial(request, slug):
+    if request.method == 'POST':
+        form = TutorialForm(request.POST, request.FILES)
+        if form.is_valid():
+            tutorial = form.save(commit=False)
+            tutorial.user = request.user
+            series = TutorialSeries.objects.get(series_slug=slug)
+
+            tutorial.tutorial_series = series
+            tutorial.save()
+            return HttpResponseRedirect(reverse('Tutorial:tutorial_detail', kwargs={'slug': tutorial.tutorial_slug}))
+
+    form = TutorialForm()
+    return render(request, 'Tutorial/tutorial_form.html', context={'key': form})
 
 
 def tutorial_category(request):

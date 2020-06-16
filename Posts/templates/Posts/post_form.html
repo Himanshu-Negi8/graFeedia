@@ -3,11 +3,29 @@
 {% load bootstrap4 %}
 
 {% block content %}
-    <form method="post" enctype="multipart/form-data" class="form">
-    {% csrf_token %}
-    {% bootstrap_form form %}
+   <div class="container">
 
-    <button type="submit">Send Post</button>
-    </form>
+        <form method="post" enctype="multipart/form-data" class="form">
+            {% csrf_token %}
 
+                    <label for="{{ form.username.id_for_label }}" class="col-md-4 control-label text-right">title<span class="text-red">*</span>:</label>
+                    <div class="col-md-6">
+                        {{ key.post_title }}
+                    </div>
+
+
+                    <label for="{{ form.email.id_for_label }}" class="col-md-4 control-label text-right">image<span class="text-red">*</span>:</label>
+                    <div class="col-md-6">
+                        {{ key.img }}
+                    </div>
+
+                <label for="{{ form.email.id_for_label }}" class="col-md-4 control-label text-right">post_content<span class="text-red">*</span>:</label>
+                    <div class="col-md-6">
+                        {{ key.message }}
+                    </div>
+            <div class="col-md-6 col-md-offset-4">
+                            <input type="submit" value="submit" class="btn btn-success">
+            </div>
+        </form>
+</div>
 {% endblock %}

@@ -10,10 +10,37 @@ from django.views.generic import CreateView, DetailView
 from .forms import SignupForm
 from .models import User
 
+
 class SignupView(CreateView):
     form_class = SignupForm
     template_name = 'Users/signup.html'
     success_url = reverse_lazy('home')
+
+
+def signup(request):
+    form = SignupForm()
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            # username = request.POST['username']
+            # email = request.POST['email']
+            # first_name = request.POST['email']
+            # last_name = request.POST['email']
+            # course = request.POST['email']
+            # email = request.POST['email']
+            #
+            # print(username)
+            # # 'first_name', 'last_name', 'email', 'username', 'password1', 'password2', 'course'
+            # user_obj = User(username=form.cleaned_data['username'], email=form.cleaned_data['email'],
+            #                 first_name=form.cleaned_data['first_name'],last_name=form.cleaned_data['last_name'],
+            #                 password1=form.cleaned_data['password1'],password2=form.cleaned_data['password2'],
+            #                 course=form.cleaned_data['course'])
+            # print(form.cleaned_data['course'])
+            # user_obj.save()
+            form.save()
+            return redirect('Users:login')
+
+    return render(request,'Users/signup.html',context={'key': form})
 
 
 def loginview(request):

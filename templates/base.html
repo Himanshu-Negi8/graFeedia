@@ -5,14 +5,17 @@
 <head>
 
     <meta charset="UTF-8">
+{#    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
 <header class="header">
+
     <div class="box">
     <nav>
         <ul>
             <li><a href="{% url 'home' %}">Home</a></li>
+            {{ request.user }}
         </ul>
         <ul>
 

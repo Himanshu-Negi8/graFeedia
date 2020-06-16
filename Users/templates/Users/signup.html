@@ -7,12 +7,64 @@
 {% endblock %}
 {% block content %}
 <div class="container">
-    <form method="post" action="" class="form">
-        {% csrf_token %}
-        {% bootstrap_form form%}
-        {% buttons %}
-        <button type="submit" class="btn btn-primary">Signup</button>
-        {% endbuttons %}
-    </form>
-</div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Register</div>
+                    <div class="panel-body">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+
+                        <div class="form-group clearfix">
+                            <label for="{{ form.username.id_for_label }}" class="col-md-4 control-label text-right">Username<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ key.username }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.email.id_for_label }}" class="col-md-4 control-label text-right">Email<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ key.email }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.password.id_for_label }}" class="col-md-4 control-label text-right">Password<span class="text-red">*</span>:</label>
+                            <div class="col-md-6">
+                                {{ key.password1 }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.password_repeat.id_for_label }}" class="col-md-4 control-label text-right">Confirm password:</label>
+                            <div class="col-md-6">
+                                {{ key.password2 }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.first_name.id_for_label }}" class="col-md-4 control-label text-right">First Name:</label>
+                            <div class="col-md-6">
+                                {{ key.first_name}}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.last_name.id_for_label }}" class="col-md-4 control-label text-right">Last Name:</label>
+                            <div class="col-md-6">
+                                {{ key.last_name }}
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label for="{{ form.phone_number.id_for_label }}" class="col-md-4 control-label text-right">Course:</label>
+                            <div class="col-md-6">
+                                {{ key.course }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-4">
+                            <input type="submit" value="Register" class="btn btn-success">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 {% endblock content %}

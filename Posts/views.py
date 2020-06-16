@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from braces.views import SelectRelatedMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -37,16 +38,31 @@ class PostListView(ListView):
 #     context = {'posts':user_posts}
 #     return render(request,template,context)
 
-class CreatePostView(LoginRequiredMixin, CreateView):
-    model = Post
-    form_class = PostForm
+# class CreatePostView(LoginRequiredMixin, CreateView):
+#     model = Post
+#     form_class = PostForm
+#
+#     def form_valid(self, form):
+#         self.object = form.save(commit=False)
+#         user = self.request.user
+#         self.object.user = user
+#         self.object.save()
+#         return super().form_valid(form)
 
-    def form_valid(self, form):
-        self.object = form.save(commit=False)
-        user = self.request.user
-        self.object.user = user
-        self.object.save()
-        return super().form_valid(form)
+
+@login_required
+def createPost(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST,request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+
+            post.save()
+            return HttpResponseRedirect(reverse('Posts:post_detail', kwargs={'slug': post.slug}))
+
+    form = PostForm()
+    return render(request,'Posts/post_form.html',context={'key': form})
 
 
 class PostDetailView(DetailView):
