@@ -6,14 +6,46 @@ post detail
 {% endblock %}
 
 {% block post_content%}
-<div class="col-md-8">
-<p class="mb-0">{{ post.post_title}}</p>
-<p class="mb-0">{{ post.message }}</p>
+{#<div class="col-md-8">#}
+{#<p class="mb-0">{{ post.post_title}}</p>#}
+{#<p class="mb-0">{{ post.message }}</p>#}
+{##}
+{#<footer class="blockquote-footer">Created by: <a href="#">@{{ post.user.username }}</a> at <cite title="Source Title"><a href="#">{{ post.created_at }}</a></cite>#}
+{#</footer>#}
+{#</div>#}
+{#{% if post.img %}#}
+{#<img src="{{ post.img.url }}" alt="" height="50px" width="200px">#}
+ <section class="section section-showcase">
+      <div class="container">
+          <div class="row">
+              <div class="col s12 m10 offset-m1">
+                  <div class="card lighten-4 hoverable">
 
-<footer class="blockquote-footer">Created by: <a href="#">@{{ post.user.username }}</a> at <cite title="Source Title"><a href="#">{{ post.created_at }}</a></cite>
-</footer>
-</div>
-{% if post.img %}
-<img src="{{ post.img.url }}" alt="" height="50px" width="200px">
-{% endif %}
+                      <div class="card-image">
+                          {% if post.img %}
+                          <img src="{{ post.img.url }}" alt="" height="400px">
+                          {% endif %}
+
+                      </div>
+                        <div class="card-title" style="margin-left: 5px; margin-top:10px">
+                            <span class="card-title">{{post.post_title}}</span>
+                        </div>
+                      <div class="card-content">
+                          <p>
+                               {{ post.message }}
+                          </p>
+
+                      </div>
+                          <p>
+                            Created By :{{ post.user.username }} {{ post.created_at }}
+                        </p>
+                  </div>
+              </div>
+
+            </div>
+        </div>
+
+      </div>
+  </section>
+
 {% endblock post_content %}

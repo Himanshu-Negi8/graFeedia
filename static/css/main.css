@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+nav {
+    background:  #eb5757;
+}
+
+
+
+
+
+.login {
+    background: #fff;
+    color: #131c27;
+}
+.login:hover {
+   background: #FAF0CA;
+}
+
+
+.lightcream {
+    background: #FF824D;
+}
+
+.lightcream:hover {
+    background: #f57740;
+}
+
+.footer-background {
+    background: #222222;
+}
+

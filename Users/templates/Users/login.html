@@ -1,29 +1,57 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% load bootstrap4 %}
+{#{% load bootstrap4 %}#}
 
 {% block content %}
 
     {% for message in messages %}
     {{ message }}
     {% endfor %}
-    <div class="container">
-        <form method="post" action="" class="form">
-        {% csrf_token %}
-          <div class="form-group">
-            <label for="exampleInputEmail1">Username</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="username">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <section class="section section-login">
+      <div class="container">
+          <div class="row card-panel z-depth-5 grey lighten-4">
+              <h4 class="center">LOGIN</h4>
+              <form method="post">
+                   {% csrf_token %}
+                  <div class="col s12 m6 offset-m3">
+
+                  <div class="input-field">
+                      <label for="username">name</label>
+                      <input type="text" name="username" placeholder="username" id="username">
+                  </div>
+
+                  <div class="input-field">
+                      <label for="password">password</label>
+                      <input type="password" name="password" placeholder="password" id="password">
+                  </div>
+
+                  <div class="input-field center">
+                      <input class="btn btn-large lightcream" type="submit" value="click">
+                  </div>
+              </div>
+
+              </form>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-          </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    </div>
+      </div>
+  </section>
+
+{#    <div class="container">#}
+{#        <form method="post" action="" class="form">#}
+{#        {% csrf_token %}#}
+{#          <div class="form-group">#}
+{#            <label for="exampleInputEmail1">Username</label>#}
+{#            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="username">#}
+{#            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
+{#          </div>#}
+{#          <div class="form-group">#}
+{#            <label for="exampleInputPassword1">Password</label>#}
+{#            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">#}
+{#          </div>#}
+{#          <div class="form-group form-check">#}
+{#            <input type="checkbox" class="form-check-input" id="exampleCheck1">#}
+{#            <label class="form-check-label" for="exampleCheck1">Check me out</label>#}
+{#          </div>#}
+{#      <button type="submit" class="btn btn-primary">Submit</button>#}
+{#    </form>#}
+{#    </div>#}
 {% endblock %}

@@ -4,8 +4,40 @@
 
 {% block content %}
 
- {% for tutorial in tutorial_list %}
-    <a href="{% url 'Tutorial:tutorial_detail' slug=tutorial.tutorial_slug   %}" >{{ tutorial.tutorial_title }}</a>
-    {% endfor %}
+    {% if not tutorial_list %}
+    <div class="w-100" style="height: 390px">
+        <div class="container" style="margin: auto">
+            <p>No tutorial till now in this series</p>
 
+        </div>
+    </div>
+    {% else %}
+    <section class="section section-showcase">
+    <div class="container">
+          <div class="row">
+    {% for tutorial in tutorial_list %}
+
+             <div class="col s12 m4">
+              <div class="card lighten-4 hoverable">
+                  <div class="card-image">
+                        <img src="{{ tutorial.img.url }}" height="300px" width="180px">
+                       <span class="card-title">{{ tutorial.tutorial_title }}</span>
+                  </div>
+                  <div class="card-content">
+                      <p>
+                         {{ tutorial.tutorial_content|truncatechars:50 }}
+                      </p>
+                  </div>
+                  <div class="card-action">
+                      <a href="{% url 'Tutorial:tutorial_detail' slug=tutorial.tutorial_slug %}">Read More</a><br>
+                  </div>
+              </div>
+          </div>
+
+
+    {% endfor %}
+          </div>
+    </div>
+    </section>
+    {% endif %}
 {% endblock %}

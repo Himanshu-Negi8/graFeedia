@@ -5,8 +5,24 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+  <section class="slider">
+    <ul class="slides">
+      <li>
+        <img src="{% static 'img/c.jpg' %}" alt="">
 
+      </li>
+      <li>
 
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<script src="{% static 'js/script.js' %}"></script>
+          <img src="{% static 'img/a.jpg' %}" alt="">
+
+      </li>
+      <li>
+        <img src="{% static 'img/b.jpg' %}" alt="">
+
+      </li>
+    </ul>
+  </section>
+
+<script src="{% static 'js/materialize.min.js' %}"></script>
+<script src="{% static 'js/mobile.js' %}"></script>
 {% endblock content %}

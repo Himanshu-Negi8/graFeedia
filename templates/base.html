@@ -1,44 +1,145 @@
 <!DOCTYPE html>
-{% load bootstrap4 %}
+{#{% load bootstrap4 %}#}
 {% load staticfiles %}
 <html lang="en">
 <head>
 
     <meta charset="UTF-8">
-{#    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    {#    <link rel="stylesheet" href="{% static 'css/header.css'%}">#}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Grafedia</title>
+{#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">#}
 </head>
 <body>
-<header class="header">
-
-    <div class="box">
+<div class="navbar-fixed">
     <nav>
-        <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            {{ request.user }}
-        </ul>
-        <ul>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#home" class="brand-logo">Grafedia</a>
+                <a href="#" data-activates="mobile-nav" class="button-collapse">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
 
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    {% if user.is_authenticated %}
 
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'Users:logout' %}">Log Out</a></li>
-            <li><a href="{% url 'Posts:createPost' %}">CreatePost</a></li>
-            <li><a href="{% url 'Posts:post_lists' %}">List posts</a></li>
-            <li><a href="{% url 'Tutorial:tut_category' %}">Categories</a> </li>
+                        <li>
+                        <li><a href="{% url 'Posts:createPost' %}">CreatePost</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Tutorial:tut_category' %}">Categories</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Posts:post_lists' %}">List posts</a>
+                        </li>
 
-            {% else %}
-                <li><a href="{% url 'Users:login' %}">Login</a></li>
-                <li><a href="{% url 'Users:signup' %}">Signup</a></li>
-            {% endif %}
+                        <li>
+                            <a href="{% url 'Users:logout' %}">Log Out</a>
+                        </li>
 
-        </ul>
+                    {% else %}
+                        <li><a href="{% url 'Users:login' %}">Login</a></li>
+                        <li><a href="{% url 'Users:signup' %}">Signup</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
     </nav>
-    </div>
-</header>
+</div>
+
+{#    {% if request.user_agent.is_mobile %}#}
+{##}
+{#  <ul class="side-nav" id="mobile-nav">#}
+{#     <li>#}
+{##}
+{#         <a href="{% url 'home' %}">Home</a>#}
+{#            </li>#}
+{#              {% if user.is_authenticated %}#}
+{#            <li>#}
+{#              <a href="{% url 'Users:logout' %}">Log Out</a>#}
+{#            </li>#}
+{#            <li>#}
+{#              <li><a href="{% url 'Posts:createPost' %}">CreatePost</a>#}
+{#            </li>#}
+{#            <li>#}
+{#              <a href="{% url 'Tutorial:tut_category' %}">Categories</a>#}
+{#            </li>#}
+{##}
+{#              <li>#}
+{#                <a href="{% url 'Posts:post_lists' %}">List posts</a>#}
+{#              </li>#}
+{##}
+{#              {% else %}#}
+{#              <li><a href="{% url 'Users:login' %}">Login</a></li>#}
+{#                <li><a href="{% url 'Users:signup' %}">Signup</a></li>#}
+{#              {% endif %}#}
+{#  </ul>#}
+{#{% endif %}#}
+
+
 
 {% block content %}
 
 {% endblock content %}
+<footer class="page-footer footer-background  lighten-1">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">About Us</h5>
+                <p class="grey-text text-lighten-4">A web based app that let you share your knowledge on different topics as tutorial and let you also write your blog post.
+                    ducimus, hic id quod enim voluptate </p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li>
+                        <a class="grey-text text-lighten-3" href="/">Home</a>
+                    </li>
+
+                    <li>
+                        <a class="grey-text text-lighten-3" href="register.html">Signup</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="footer-copyright">
+        <div class="container">
+            GraFedia &copy; 2020
+            <a class="grey-text text-lighten-4 right" href="#!">Terms & Conditions</a>
+        </div>
+    </div>
+</footer>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        $('.button-collapse').sideNav();
+
+
+        $('.slider').slider({
+            indicators: false,
+            height: 500,
+            transition: 500,
+            interval: 6000
+        });
+    });
+</script>
 
 </body>
 </html>

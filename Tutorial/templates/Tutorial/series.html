@@ -3,11 +3,46 @@
 {% load bootstrap4 %}
 
 {% block content %}
+    {% if not series %}
+    <div class="w-100" style="height: 390px">
+        <div class="container" style="margin: auto">
+            <p>No series till now in this category</p>
+        </div>
+    </div>
+    {% else %}
+
+
+
+
+        <section class="section section-showcase">
+    <div class="container">
+          <div class="row">
     {% for i in series %}
-       <a href="{% url 'Tutorial:addtutorial' slug=i.series_slug   %}" >Click to create tutorial</a>
-        <a href="{% url 'Tutorial:tutorial_lists' slug=i.series_slug %}">{{ i.tutorial_series }}</a><br>
+
+             <div class="col s12 m4" style="border-radius: 5px;">
+              <div class="card lighten-4 hoverable">
+                  <div class="card-image">
+                      <img src="{{ i.img.url }}" height="300px" width="180px">
+
+                  </div>
+                  <div class="card-content">
+                      <p>
+                         {{i.series_summary }}
+                      </p>
+                  </div>
+                  <div class="card-action">
+                      <a href="{% url 'Tutorial:addtutorial' slug=i.series_slug   %}" >Click to create tutorial</a><br>
+                      <a href="{% url 'Tutorial:tutorial_lists' slug=i.series_slug %}">Click to See Tutorial in this series</a><br>
+                  </div>
+              </div>
+          </div>
+
+
     {% endfor %}
+          </div>
+    </div>
+    </section>
 
-
+    {% endif %}
 
 {% endblock %}

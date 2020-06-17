@@ -1,11 +1,39 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 {% block content %}
- <h5>This is the post list page</h5>
-
+{% if not post_list %}
+    <div class="w-100" style="height: 390px">
+        <div class="container" style="margin: auto">
+            <p>No tutorial till now in this series</p>
+        </div>
+    </div>
+    {% else %}
+    <section class="section section-showcase">
+    <div class="container">
+          <div class="row">
     {% for post in post_list %}
-        {% if request.user == post.user  %}
-        <a href="{% url 'Posts:post_detail' slug=post.slug %}">{{ post.post_title }}</a><br>
-        {% endif %}
+
+             <div class="col s12 m4">
+              <div class="card lighten-4 hoverable">
+                  <div class="card-image">
+                        <img src="{{ post.img.url }}" height="300px" width="180px">
+                       <span class="card-title">{{ post.post_title }}</span>
+                  </div>
+                  <div class="card-content">
+                      <p>
+                         {{ post.message|truncatechars:50 }}
+                      </p>
+                  </div>
+                  <div class="card-action">
+                      <a href="{% url 'Posts:post_detail' slug=post.slug %}">Read More</a><br>
+                  </div>
+              </div>
+          </div>
+
+
     {% endfor %}
+          </div>
+    </div>
+    </section>
+    {% endif %}
 {% endblock %}

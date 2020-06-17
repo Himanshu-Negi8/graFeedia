@@ -3,9 +3,33 @@
 {% load bootstrap4 %}
 
 {% block content %}
-    {% for i in category %}
-       <a href="{% url 'Tutorial:tut_series' slug=i.category_slug %}" >{{ i.tutorial_category }}</a>
-    {% endfor %}
-    </form>
 
+
+<section class="section section-showcase">
+    <div class="container">
+          <div class="row">
+    {% for i in category %}
+
+             <div class="col s12 m4" style="border-radius: 5px;">
+              <div class="card lighten-4 hoverable">
+                  <div class="card-image">
+
+                       <span class="card-title">{{ i.tutorial_category }}</span>
+                  </div>
+                  <div class="card-content">
+                      <p>
+                         {{i.category_summary }}
+                      </p>
+                  </div>
+                  <div class="card-action">
+                      <a href="{% url 'Tutorial:tut_series' slug=i.category_slug %}" >{{ i.tutorial_category }}</a>
+                  </div>
+              </div>
+          </div>
+
+
+    {% endfor %}
+          </div>
+    </div>
+    </section>
 {% endblock %}

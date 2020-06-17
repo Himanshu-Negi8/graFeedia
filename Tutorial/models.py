@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 User = get_user_model()
 
+
 class TutorialCategory(models.Model):
     tutorial_category = models.CharField(max_length=200)
     category_summary = models.CharField(max_length=200)
@@ -25,6 +26,7 @@ class TutorialSeries(models.Model):
                                           on_delete=models.SET_DEFAULT)
     series_summary = models.CharField(max_length=200)
     series_slug = models.CharField(max_length=200)
+    img = models.ImageField(upload_to="photo/%Y/%m/%d", blank=True)
     class Meta:
         verbose_name_plural = "Series"
 
@@ -39,6 +41,7 @@ class Tutorial(models.Model):
     tutorial_published = models.DateTimeField("date published", default=datetime.now())
     tutorial_series =models.ForeignKey(TutorialSeries,on_delete=models.CASCADE)
     tutorial_slug = models.SlugField(allow_unicode=True,unique=True)
+    img = models.ImageField(upload_to="photo/%Y/%m/%d", blank=True)
 
     def save(self, *args, **kwargs):
         self.tutorial_slug = slugify(self.tutorial_title)

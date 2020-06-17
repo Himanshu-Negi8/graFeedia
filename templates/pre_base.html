@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="stylesheet" href="{% static 'css/header.css'%}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<header class="header">
+    <div class="box">
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+
+        </ul>
+        <ul>
+
+
+            {% if user.is_authenticated %}
+
+                        <li><a href="{% url 'Posts:createPost' %}">CreatePost</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Tutorial:tut_category' %}">Categories</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Posts:post_lists' %}">List posts</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'Users:logout' %}">Log Out</a>
+                        </li>
+            {% else %}
+                <li><a href="{% url 'Users:login' %}">Login</a></li>
+                <li><a href="{% url 'Users:signup' %}">Signup</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+    </div>
+</header>
+{% block content %}
+{% endblock content %}
+</body>
+</html>

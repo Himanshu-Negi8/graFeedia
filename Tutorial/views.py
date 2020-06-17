@@ -10,19 +10,19 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 
 
-# class CreateTutorial(LoginRequiredMixin, CreateView):
-#     model = Tutorial
-#     form_class = TutorialForm
-#
-#     def form_valid(self, form):
-#         self.object = form.save(commit=False)
-#         user = self.request.user
-#         series = TutorialSeries.objects.get(series_slug=self.kwargs['slug'])
-#         print(series)
-#         self.object.user = user
-#         self.object.tutorial_series = series
-#         self.object.save()
-#         return super().form_valid(form)
+class CreateTutorial(LoginRequiredMixin, CreateView):
+    model = Tutorial
+    form_class = TutorialForm
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        user = self.request.user
+        series = TutorialSeries.objects.get(series_slug=self.kwargs['slug'])
+        print(series)
+        self.object.user = user
+        self.object.tutorial_series = series
+        self.object.save()
+        return super().form_valid(form)
 
 
 @login_required

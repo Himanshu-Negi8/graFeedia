@@ -1,0 +1,15 @@
+a, body, dd, div, dl, dt, h1, h2, h3, h4, h5, img, input, li, p, table, tbody, td, tr, ul {    text-align: justify; font-size: 16px;  letter-spacing: .5px;  line-height: 24px;  list-style: none;  margin: 0;  padding: 0;  border: 0;  outline: 0;  font: inherit;  vertical-align: baseline  }  input[type=password], input[type=text] {  -webkit-appearance: none;  -moz-appearance: none;  appearance: none  }  input, select, textarea {  resize: none;  outline: 0;  font: inherit  }  body {  cursor: default;  -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;  text-rendering: optimizeLegibility;  font-size: 14px;  height: 0;  color: #333; font-family: 'Roboto Condensed',sans-serif; background-color: #F5F8F9  }  #respond textarea, .box, .downloads a, .mob_menu, .o_right, .ono_subs input[type=text]{box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box  } .box {margin: auto;position: relative; padding: 0 20px  }  .form-submit input, .header, .i_gk>a:after, .menu ul li, .mob_menu, .on_state, .ono_float, .ono_menu, .ono_subs button[type=submit], .social>div>div>span, .social>div>a, .o_engage,.o_scroll_top,kitkat a {-webkit-transition: all .3s ease-out;-moz-transition: all .3s ease-out;-o-transition: all .3s ease-out;transition: all .3s ease-out  }  a { cursor: pointer;text-decoration: none  }
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{background: #e24a66; box-shadow: 2px 5px 6px #ddd; }
+.box{  margin: 0 auto;  }
+.box nav{  width: 100%;  height: 50px;  position: relative;  }
+.box nav ul{  height: 100%;  list-style: none;  position: absolute;  display: flex;  justify-content: center;  align-items: center;
+}
+.box nav ul:last-child{  right:0%;}
+.box nav ul:first-child{left:0;}
+.box nav ul li{  display: inline-block;  margin-left:24px;   }
+.box nav ul li a{color:#fff;border: 1px solid aliceblue;  border-radius: 3px;  font-size: 18px;  text-align: center;  padding: 5px 10px;  }
